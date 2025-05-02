@@ -22,9 +22,10 @@ class Node:
     """
     def __init__(self, data):
         self._data = data
+        self.next = None
 
     def __repr__(self) -> str:
-        return f'Node({self.get()})'
+        return f'{self.get()}'
 
     def get(self):
         return self._data
@@ -68,8 +69,8 @@ class LinkedList:
         """
         # Replace the line below with your code
         size = 0
-        if self.head:
-            current = self.head
+        if self._head:
+            current = self._head
             while(current):
                 current = current.next
                 size += 1
@@ -91,7 +92,7 @@ class LinkedList:
         """
         # Replace the line below with your code
         if n < self.length():
-            current = self.head
+            current = self._head
             count = n
             while count > 0:
               current = current.next
@@ -135,7 +136,7 @@ class LinkedList:
         """
         # Replace the line below with your code
         new_node = Node(item)
-        if self._head = None:
+        if self._head == None:
             self._head = new_node
         else:
           current = self.get(self.length()-1)
@@ -157,10 +158,12 @@ class LinkedList:
         if n > length():
           raise IndexError
         else:
-          current = self.get(n-1)
-          prev = self.get(n-2)
-          prev.next = current.next
-          
+          if length() > 1:
+            current = self.get(n-1)
+            prev = self.get(n-2)
+            prev.next = current.next
+          else:
+            self._head = None  
        
     def contains(self, item) -> bool:
         """Checks whether an item is in the linkedlist and returns
@@ -175,7 +178,7 @@ class LinkedList:
         otherwise False
         """
         # Replace the line below with your code
-        if self._head = None:
+        if self._head == None:
             return False
         else:
             current = self._head
@@ -188,4 +191,4 @@ class LinkedList:
         
 
 if __name__ == "__main__":
-    list1 = 
+  pass
